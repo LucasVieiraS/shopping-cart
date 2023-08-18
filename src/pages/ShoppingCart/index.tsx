@@ -21,7 +21,7 @@ export default function ShoppingCart() {
           <Text style={style.farmName}>ETEC Cidade do Livro's Farm</Text>
         </View>
         <Text style={style.description}>A basket filled with sorted products</Text>
-        <Text>R$40,00</Text>
+        <Text style={style.price}>$40,00</Text>
       </View>
     </>
   );
@@ -45,6 +45,13 @@ const style = StyleSheet.create({
   description: {
     color: '#A3A3A3',
     fontStyle: 'italic',
+  },
+  price: {
+    fontSize: 20,
+    lineHeight: 36,
+    color: '#2A9F85',
+    marginTop: 8,
+    fontWeight: '500',
   },
   cartTitle: {
     fontSize: 26,
