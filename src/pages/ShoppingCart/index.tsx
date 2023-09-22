@@ -1,58 +1,47 @@
-import React from "react";
-import { Dimensions, Image, StyleSheet, Text, View } from "react-native";
+import React, { useState } from "react";
+import { Image, StyleSheet, Text, View } from "react-native";
 
-import top from "../../../assets/top.png";
 import logo from "../../../assets/logo.png";
 
-const screenWidth = Dimensions.get("screen").width;
+import { CartProps } from "../../interfaces/CartProps";
 
-const imageHeight = 578;
-const imageWidth = 768;
+import Card from "./components/Card";
+import Header from "./components/Header";
 
 export default function ShoppingCart() {
+  const [products, setProducts] = useState<CartProps[]>([
+    {
+      id: 1,
+      name: 'ETEC Cidade do Livro',
+      description: 'A basket of sorted goods',
+      price: 40,
+      image: logo
+    },
+    {
+      id: 2,
+      name: 'TESTE',
+      description: 'A basket of sorted goodss agddagad adgdagda',
+      price: 125,
+      image: logo
+    }
+  ])
+
   return (
     <>
-      <Image source={top} style={style.top} />
-      <Text style={style.title}>Shopping Cart Details</Text>
+      <Header />
       <View style={style.cartView}>
         <Text style={style.cartTitle}>Shopping Cart</Text>
-        <View style={style.farmView}>
-          <Image source={logo} style={style.farmImage} />
-          <Text style={style.farmName}>ETEC Cidade do Livro's Farm</Text>
-        </View>
-        <Text style={style.description}>A basket filled with sorted products</Text>
-        <Text style={style.price}>$40,00</Text>
+        {
+          products.map((cartData: CartProps) => {
+            return <Card data={cartData} key={cartData.id}/>
+          })
+        }
       </View>
     </>
   );
 }
 
 const style = StyleSheet.create({
-  top: {
-    width: "100%",
-    height: (imageHeight / imageWidth) * screenWidth,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    lineHeight: 26,
-    width: "100%",
-    textAlign: "center",
-    color: "white",
-    position: "absolute",
-    padding: 16,
-  },
-  description: {
-    color: '#A3A3A3',
-    fontStyle: 'italic',
-  },
-  price: {
-    fontSize: 20,
-    lineHeight: 36,
-    color: '#2A9F85',
-    marginTop: 8,
-    fontWeight: '500',
-  },
   cartTitle: {
     fontSize: 26,
     lineHeight: 42,
@@ -61,19 +50,5 @@ const style = StyleSheet.create({
   cartView: {
     paddingVertical: 8,
     paddingHorizontal: 16,
-  },
-  farmName: {
-    fontSize: 16,
-    lineHeight: 26,
-    marginLeft: 12,
-    fontWeight: 'bold',
-  },
-  farmImage: {
-    width: 32,
-    height: 32,
-  },
-  farmView: {
-    flexDirection: 'row',
-    paddingVertical: 12,
   },
 });
