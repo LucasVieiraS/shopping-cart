@@ -1,19 +1,28 @@
 import { Image, StyleSheet, Text, View } from "react-native";
-import { CartProps } from "../../../../interfaces/CartProps";
 
 import { formatCurrency } from "react-native-format-currency";
 
-export default function Card({ data }: { data: CartProps }) {
-  const [valueFormattedWithSymbol] = formatCurrency({amount: data.price, code: 'BRL'})
+import icon from '../../../../../assets/icon.png'
+
+type CardProps = {
+  name: string,
+  farmName: string,
+  description: string,
+  price: number,
+  button: string,
+}
+
+export default function Card({ details }: { details: CardProps }) {
+  const [valueFormattedWithSymbol] = formatCurrency({amount: details.price, code: 'BRL'})
 
   return (
     <>
       <View style={style.farmView}>
-        <Image source={data.image} style={style.farmImage} />
-        <Text style={style.farmName}>{data.name}</Text>
+        <Image source={icon} style={style.farmImage} />
+        <Text style={style.farmName}>{details.name}</Text>
       </View>
       <Text style={style.description}>
-        {data.description}
+        {details.description}
       </Text>
       <Text style={style.price}>{valueFormattedWithSymbol}</Text>
     </>

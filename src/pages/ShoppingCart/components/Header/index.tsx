@@ -1,13 +1,14 @@
 import { Dimensions, Image, Text, StyleSheet } from "react-native";
 
 import top from "../../../../../assets/top.png";
+import { HeaderProps } from "../../../../interfaces/HeaderProps";
 
 const screenWidth = Dimensions.get("screen").width;
 
 const imageHeight = 578;
 const imageWidth = 768;
 
-export default function Header() {
+export default function Header({ title }: HeaderProps) {
   return (
     <>
       <Image source={top} style={style.top} />
