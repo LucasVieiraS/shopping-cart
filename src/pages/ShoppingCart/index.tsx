@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import { Image, ImageSourcePropType, StyleSheet, Text, View } from "react-native";
-
-import logo from "../../../assets/logo.png";
+import { StyleSheet, Text, View } from "react-native";
 
 import CartData from "../../mocks/CartData";
 

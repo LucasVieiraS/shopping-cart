@@ -1,6 +1,6 @@
 import tomato from '../../assets/fruits/Tomato.png';
 import brocolli from '../../assets/fruits/Brocolli.png';
-import potato from '../../assets/fruits/Potatao.png';
+import potato from '../../assets/fruits/Potato.png';
 import cucumber from '../../assets/fruits/Cucumber.png';
 import pumpkin from '../../assets/fruits/Pumpkin.png';
 
